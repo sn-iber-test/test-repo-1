@@ -1,0 +1,18 @@
+name: Create AWA Platform
+
+on:
+  workflow_dispatch:
+    inputs:
+      json_input:
+        description: "Input in JSON format"
+        required: true
+        default: '{"key": "value"}'
+
+jobs:
+  echo_input:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Echo Input
+      run: |
+            echo "The input is: '${{ github.event.inputs.json_input }}'"

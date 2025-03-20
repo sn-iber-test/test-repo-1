@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "AzureAppServiceSchema.json",
+  "title": "Azure App Service Creation",
+  "description": "Schema for creating an Azure App Service, App Service Plan, and Resource Group using Terraform.",
+  "type": "object",
+  "properties": {
+    "resourceGroupName": {
+      "type": "string",
+      "title": "Resource Group Name",
+      "description": "Name of the Azure Resource Group."
+    },
+    "location": {
+      "type": "string",
+      "title": "Location",
+      "description": "Azure region where resources will be created."
+    },
+    "Business Area": {
+      "type": "string",
+      "title": "Business Area",
+      "enum": ["Corpo", "Retail", "Renewables"],
+      "description": "Azure region where resources will be created."
+    },
+    "appServicePlanName": {
+      "type": "string",
+      "title": "App Service Plan Name",
+      "description": "Name of the Azure App Service Plan."
+    },
+    "skuTier": {
+      "type": "string",
+      "title": "SKU Tier",
+      "description": "Tier of the App Service Plan.",
+      "enum": [
+        "Free",
+        "Shared",
+        "Basic",
+        "Standard",
+        "Premium"
+      ]
+    },
+    "skuSize": {
+      "type": "string",
+      "title": "SKU Size",
+      "description": "Size of the App Service Plan.",
+      "enum": [
+        "F1",
+        "D1",
+        "B1",
+        "B2",
+        "B3",
+        "S1",
+        "S2",
+        "S3",
+        "P1",
+        "P2",
+        "P3"
+      ]
+    },
+    "appServiceName": {
+      "type": "string",
+      "title": "App Service Name",
+      "description": "Name of the Azure Web App."
+    },
+    "environmentVariables": {
+      "type": "object",
+      "title": "Environment Variables",
+      "description": "Optional key-value pairs for environment variables in the App Service.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "resourceGroupName",
+    "location",
+    "appServicePlanName",
+    "skuTier",
+    "skuSize",
+    "appServiceName"
+  ],
+  "additionalProperties": false
+}

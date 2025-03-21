@@ -7,10 +7,6 @@ on:
         description: "Input in JSON format"
         required: true
         default: '{"key": "value"}'
-      nuevo_input:
-        description: "Nuevo Input"
-        required: true
-        default: '{"key": "value"}'
       deploymentID:
         description: "Deployment ID"
         type: string
